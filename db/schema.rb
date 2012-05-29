@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20120115021329) do
     t.boolean  "help"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "closed_at"
     t.datetime "status_changed_at"
     t.string   "status"
   end
@@ -107,25 +106,6 @@ ActiveRecord::Schema.define(:version => 20120115021329) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "talks", :force => true do |t|
-    t.integer  "venue_id"
-    t.integer  "user_id"
-    t.string   "name"
-    t.text     "description"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "camp_id"
-  end
-
-  create_table "thought_processes", :force => true do |t|
-    t.integer  "thought_id"
-    t.integer  "evolution_id"
-    t.string   "evolution_type"
-    t.datetime "evolved_at"
   end
 
   create_table "thoughts", :force => true do |t|
