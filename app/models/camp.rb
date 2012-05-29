@@ -21,7 +21,7 @@ class Camp < ActiveRecord::Base
   end
 
   def self.current
-    where(:current => true).take(1).first
+    where(:current => true).first
   end
 
   def talks_by_day
