@@ -28,9 +28,6 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'autotest'
-  gem 'autotest-growl'
-  gem 'autotest-fsevent'
   gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git', :tag => '1.0.0.beta1'
   gem 'database_cleaner'
   gem 'faker'
