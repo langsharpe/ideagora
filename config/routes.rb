@@ -5,6 +5,7 @@ Ideagora::Application.routes.draw do
   get "camps/message_board"
 
   get "welcome/index"
+  get "welcome/dashboard"
   get "sign_in" => "sessions#new", :as => "sign_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "my_profile" => "users#edit", :as => "my_profile"

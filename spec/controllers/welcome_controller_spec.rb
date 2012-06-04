@@ -36,11 +36,11 @@ describe WelcomeController do
     end
     it "has all the current events and talks" do
       Talk.make! :camp => camp, :venue => library, :start_at => Time.zone.now
-      Talk.make! :camp => camp, :venue => library, :start_at => 1.minute.from_now
-      Event.make! :camp => camp, :venue => study, :start_at => Time.zone.now
-      Event.make! :camp => camp, :venue => study, :start_at => 2.days.from_now
+      Talk.make! :camp => camp, :venue => library, :start_at => Time.zone.now
+      Event.make! :camp => camp, :venue => library, :start_at => Time.zone.now
       get :dashboard
-      assigns(:events_and_talks).should == 2
+      assigns(:talks_and_events).length.should == 3
+
     end
   end
 end
