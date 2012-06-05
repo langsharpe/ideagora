@@ -1,10 +1,10 @@
-.layout-group
-  %section.events.summary-list.layout-item
+.layout-dashboard
+  %section.summary-list.layout-item
     %header
       %h1
         What's On Now
     - unless @talks_and_events.nil? 
       - @talks_and_events.each do |event|
-        = render event
+        = render :partial => "welcome/event", :locals => { :event => event}
 
 

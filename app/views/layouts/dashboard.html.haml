@@ -30,7 +30,7 @@
             %h1= yield :title
           = yield :content_header if content_for? :content_header
         .content-container
-          .content-body
+          .content-dashboard
             = yield
 
       = render :partial => 'common/discussion'

@@ -10,10 +10,10 @@ class WelcomeController < ApplicationController
   end
   
   def dashboard
-    render :layout => 'dashboard'
     @talks_and_events = current_camp.events.in_progress
     the_rest = current_camp.events.after(Time.now).before(12.hours.from_now)
     @upcoming = the_rest.group_by { |a| (a.start_at + Time.zone.utc_offset + 1.hour).to_i / 6.hours }
+    render :layout => 'dashboard'
   end
   
 end
