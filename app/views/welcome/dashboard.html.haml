@@ -3,8 +3,15 @@
     %header
       %h1
         What's On Now
-    - unless @talks_and_events.nil? 
-      - @talks_and_events.each do |event|
-        = render :partial => "welcome/event", :locals => { :event => event}
-
+      %div#dashboard-events
+        - unless @talks_and_events.nil? 
+          = render :partial => "talks_and_events", :locals => { :events => @talks_and_events }
+  %section.summary-list.layout-item
+    %header
+      %h1
+        Upcoming
+      %div#upcoming-events
+        - unless @upcoming.nil? 
+          = render :partial => "talks_and_events", :locals => { :events => @upcoming }
+          
 

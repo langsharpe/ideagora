@@ -1,0 +1,2 @@
+$('#dashboard-events').html("<%= escape_javascript(raw render(:partial =>'talks_and_events', :locals => {:events => @talks_and_events})) %>");
+$('#upcoming-events').html("<%= escape_javascript(raw render(:partial =>'talks_and_events', :locals => {:events => @upcoming})) %>");
