@@ -29,18 +29,20 @@ describe WelcomeController do
   end
   
   describe "#dashboard" do
-    it "displays the page" do
-      camp
-      get :dashboard
-      response.should be_success
-    end
     it "has all the current events and talks" do
       Talk.make! :camp => camp, :venue => library, :start_at => Time.zone.now
       Talk.make! :camp => camp, :venue => library, :start_at => Time.zone.now
       Event.make! :camp => camp, :venue => library, :start_at => Time.zone.now
       get :dashboard
       assigns(:talks_and_events).length.should == 3
-
+    end
+    it "should separate the upcoming and current events" do
+      Talk.make! :camp => camp, :venue => library, :start_at => Time.zone.now
+      Talk.make! :camp => camp, :venue => library, :start_at => 1.hour.from_now
+      Talk.make! :camp => camp, :venue => study, :start_at => Time.zone.now
+      Talk.make! :camp => camp, :venue => study, :start_at => Time.zone.now
+      get :dashboard
+      assigns(:upcoming).length.should == 1
     end
   end
 end
