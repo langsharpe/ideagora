@@ -44,5 +44,11 @@ describe WelcomeController do
       get :dashboard
       assigns(:upcoming).length.should == 1
     end
+    it "upcoming events should not be more than 12 hours away" do
+      Talk.make! :camp => camp, :venue => study, :start_at => 13.hours.from_now
+      get :dashboard
+      assigns(:upcoming).length.should == 0
+      
+    end
   end
 end
