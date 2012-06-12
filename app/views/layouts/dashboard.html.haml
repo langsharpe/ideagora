@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
+
+    %title Railscamp Ideagora
+
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+
+    = yield :header
+
+  %body{:id => @body_id || controller.controller_name, :class => controller.action_name }
+    #page
+      %header#header{:role => "banner"}
+        %nav.global{:role => "navigation"}
+          .primary
+            %ul
+              %li#logo
+                %h1=link_to current_camp.name, root_path
+             
+          
+
+      %section#content{:role => "main"}
+        = flash_helper.html_safe
+        %header
+          - if content_for? :title
+            %h1= yield :title
+          = yield :content_header if content_for? :content_header
+        .content-container
+          .content-dashboard
+            = yield
+
+      = render :partial => 'common/discussion'
+
+      %footer#footer{:role => "contentinfo"}
+        .footer-body
+          %p Built by Gabe Hollombe, Elle Meredith &amp; Chris Darroch.
+          %p Rock on.

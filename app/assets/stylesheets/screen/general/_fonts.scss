@@ -23,6 +23,7 @@
 @include font-face("Droid Serif", font-files("/fonts/DroidSerif-BoldItalic.ttf", truetype), false, bold, italic);
 
 $h1Size: 32px;
+$h1Percentage: 10%;
 $h1Line: 1.5;
 
 @mixin title-font($size: -1) {

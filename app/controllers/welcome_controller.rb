@@ -7,5 +7,12 @@ class WelcomeController < ApplicationController
 
     @latest_notice = current_camp.notices.last
     @project = Project.order('random()').first
-  end  
+  end
+  
+  def dashboard
+    @talks_and_events = current_camp.events.in_progress
+    @upcoming = current_camp.events.after(Time.now).before(12.hours.from_now)
+    render :layout => 'dashboard'
+  end
+  
 end
