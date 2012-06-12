@@ -10,4 +10,5 @@
 //= require underscore-1.1.6.min
 //= require portamento-1.1.1
 //= require date.extensions
+//= require jquery.dataTables-1.7.6.min
 //= require_tree .
