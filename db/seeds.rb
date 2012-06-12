@@ -6,7 +6,7 @@ rc11 = Camp.find_by_name('Railscamp 11') || Camp.create(:name => 'Railscamp 11',
 Time.zone = rc11.time_zone
 
 require 'csv'
-filename = File.join(Rails.root.to_s, 'db', 'seeds', 'attendees.csv')
+filename = File.join(Rails.root.to_s, 'db', 'attendees.csv')
 puts "Making sure we have some users for #{rc11.name}..."
 CSV.foreach(filename, :headers => true) do |row|
   if rc11.users.find_by_email(row['Email']).nil?
