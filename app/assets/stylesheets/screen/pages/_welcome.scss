@@ -52,15 +52,21 @@
 		      overflow: hidden;
 		      h3 {
 		        margin: 0;
-		        font-size: 24px;
+		        font-size: 32px;
+		        line-height: 1.2;
+		        margin-left: 130px;
 		      }
 		      div {
-		        width: 6em;
+		        width: 130px;
 		        font-size: 24px;
 		        float: left;
 		        time,
 		        span {
 		          display: block;
+  		        line-height: 32px * 1.2;
+		        }
+		        time {
+		          font-weight: bold;
 		        }
 		      }
 		    }
