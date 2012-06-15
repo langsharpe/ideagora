@@ -28,13 +28,6 @@
 	}
 }
 
-@mixin global-menu {
-	@include inline-list;
-	margin: 0 auto;
-	text-align: right;
-	width: $pageWidth;
-}
-
 @mixin action-button {
 	@include title-font(18px);
 	@include box-shadow(transparentize($menuBackground, 0.6) 3px 3px 0);

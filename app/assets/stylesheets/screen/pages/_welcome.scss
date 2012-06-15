@@ -7,12 +7,19 @@
 		}
 	}
 	
-	.events, .talks { width: 400px; }
-	.notices, .projects { width: 480px; margin-left: 80px; }
+	.events, .talks { width: 42%; }
+	.notices, .projects { width: 50%; margin-left: 6%; }
 	
 	.content-body {
 		section  {
 			margin-bottom: 1em;
+		}
+	}
+	
+	@media screen and (max-width: 720px) {
+		.events, .talks, .notices, .projects {
+			margin: 0.5em 0;
+			width: auto;
 		}
 	}
 }
@@ -46,7 +53,6 @@
 			border-spacing: 0;
 		}
 		.layout-item {
-		  width: 50%;
 		  header h1 {
 		    font-size: 48px;
 		    @include alt-font;

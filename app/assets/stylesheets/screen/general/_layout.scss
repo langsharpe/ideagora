@@ -1,10 +1,24 @@
-$pageWidth: 960px;
-
 $topGap: 58px;
 $secondMenuHeight: 22px;
 $menuGap: $topGap - $secondMenuHeight;
 
 $logoDiameter: 139px;
+
+@mixin setPageWidths($size) {
+	#content > header,
+	.global > .primary > .ul,
+	.global > .secondary > .ul,
+	.content-body,
+	.footer-body {
+		width: $size;
+		margin: 0 auto;
+	}
+}
+
+@mixin global-menu {
+	@include inline-list;
+	text-align: right;
+}
 
 #header {
 	position: relative;
@@ -65,7 +79,7 @@ $logoDiameter: 139px;
 	}
 
 	> ul {
-		@include global-menu();
+		@include global-menu;
 		position: relative;
 
 		> li {
@@ -122,10 +136,8 @@ $logoDiameter: 139px;
 
 	> header {
 		background: url('/images/header-bg-linethrough.png') 0 50% repeat-x;
-		margin: 0 auto;
 		position: relative;
 		text-align: center;
-		width: $pageWidth;
 
 		> h1 {
 			@include fixed-background(); // allows for clobbering the line-through
@@ -137,9 +149,6 @@ $logoDiameter: 139px;
 }
 
 .content-body {
-	margin: 0 auto;
-	width: $pageWidth;
-
 	section {
 		> footer {
 			margin-top: 1em;
@@ -173,8 +182,30 @@ $logoDiameter: 139px;
 	}
 
 	.footer-body {
-		margin: 0 auto;
 		text-align: center;
-		width: $pageWidth;
 	}
+}
+
+@media screen and (min-width: 721px) {
+	@include setPageWidths(960px);
+}
+
+@media screen and (max-width: 720px) {
+	@include setPageWidths(500px);
+	
+	.layout-group {
+		display: block;
+		width: auto;
+		
+		> .layout-item {
+			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	@include setPageWidths(320px);
+}
+
+@media screen and (max-width: 320px) {
 }
