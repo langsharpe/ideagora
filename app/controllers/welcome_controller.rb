@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
   
   def dashboard
     @talks_and_events = current_camp.events.in_progress
-    @upcoming = current_camp.events.after(Time.now).before(12.hours.from_now)
+    @upcoming = current_camp.events.after(Time.now).before(24.hours.from_now)
     render :layout => 'dashboard'
   end
   
