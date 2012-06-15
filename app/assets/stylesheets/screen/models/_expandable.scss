@@ -2,11 +2,6 @@
 .expandable-list {
 	position: relative;
 	
-	> .list-panel {
-		margin-right: 10px;
-		width: 470px;
-	}
-	
 	.item-detail-panel {
 		@include border-radius(2px);
 		background: $panelInnerBorder;
@@ -15,7 +10,6 @@
 		> & {
 			position: absolute;
 			top: 0;
-			width: 410px;
 		}
 		
 		> .placeholder {
@@ -52,5 +46,29 @@
 		&.fixed {
 			position: fixed;
 		}
+	}
+}
+
+@media screen and (min-width: 721px) {
+	#portamento_container,
+	.item-detail-panel {
+		display: block;
+	}
+
+	.expandable-list > .list-panel {
+		margin-right: 10px;
+		width: 470px;
+	}
+	
+	.expandable-list > .item-detail-panel {
+		width: 410px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	#portamento_container,
+	#portamento_container .item-detail-panel,
+	#portamento_container .item-detail-panel.fixed {
+		display: none;
 	}
 }

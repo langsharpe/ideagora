@@ -37,7 +37,9 @@
 			});
 			// Prevent clicks on the item's canonical link from taking us away from the page.
 			item.find("a.item-link").click(function(e) {
-				e.preventDefault();
+				if (displayPanel.is(":visible")) {
+					e.preventDefault();
+				}
 			});
 		});
 	});
