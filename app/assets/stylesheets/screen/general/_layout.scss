@@ -192,7 +192,7 @@ $logoDiameter: 139px;
 
 @media screen and (max-width: 720px) {
 	@include setPageWidths(500px);
-	
+
 	.layout-group {
 		display: block;
 		width: auto;

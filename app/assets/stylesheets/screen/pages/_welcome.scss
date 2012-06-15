@@ -11,7 +11,7 @@
 	.notices, .projects { width: 50%; margin-left: 6%; }
 	
 	.content-body {
-		section  {
+		section	 {
 			margin-bottom: 1em;
 		}
 	}
@@ -35,9 +35,9 @@
 		padding-top: 0;
 	}
 
-  nav.global .primary {
-    height: 80px;
-  }
+	nav.global .primary {
+		height: 80px;
+	}
 
 	.content-dashboard {
 		margin: 0 2em;
@@ -53,39 +53,39 @@
 			border-spacing: 0;
 		}
 		.layout-item {
-		  header h1 {
-		    font-size: 48px;
-		    @include alt-font;
+			header h1 {
+				font-size: 48px;
+				@include alt-font;
 				letter-spacing: -0.01em;
-        margin-top: -76px;
-		    color: #fff;
+				margin-top: -76px;
+				color: #fff;
 				@include text-shadow(#240B07 -1px -1px 1px);
-		  }
-		  article {
-		    margin-bottom: 1em;
-		    header {
-		      overflow: hidden;
-		      h3 {
-		        margin: 0;
-		        font-size: 32px;
-		        line-height: 1.2;
-		        margin-left: 130px;
-		      }
-		      div {
-		        width: 130px;
-		        font-size: 24px;
-		        float: left;
-		        time,
-		        span {
-		          display: block;
-  		        line-height: 32px * 1.2;
-		        }
-		        time {
-		          font-weight: bold;
-		        }
-		      }
-		    }
-		  }
+			}
+			article {
+				margin-bottom: 1em;
+				header {
+					overflow: hidden;
+					h3 {
+						margin: 0;
+						font-size: 32px;
+						line-height: 1.2;
+						margin-left: 130px;
+					}
+					div {
+						width: 130px;
+						font-size: 24px;
+						float: left;
+						time,
+						span {
+							display: block;
+							line-height: 32px * 1.2;
+						}
+						time {
+							font-weight: bold;
+						}
+					}
+				}
+			}
 		}
 	}
 }
