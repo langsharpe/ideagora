@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
   scope :after, lambda { |time| where("start_at >= :time", :time => time) }
   scope :before, lambda { |time| where("start_at <= :time", :time => time) }
   scope :for_day, lambda { |day| self.after(day.beginning_of_day).before(day.end_of_day) }
-  scope :in_progress, lambda { self.before(Time.now).where("end_at > :time", :time => Time.now) }
+  scope :in_progress, lambda { self.before(Time.zone.now).where("end_at > :time", :time => Time.zone.now) }
 
   default_scope order(:start_at)
 
