@@ -1,10 +1,10 @@
 -events.each do |event|
   %article
     %header
-      %h3.title
-        = link_to event.name, event, :class => "item-link"
       %div.where
         %time.start{ :datetime => event.start_at, :"data-unix" => event.start_at.to_time.to_i }
           = hour_of event.start_at
         %span.place
           = event.venue
+      %h3.title
+        = link_to event.name, event, :class => "item-link"
