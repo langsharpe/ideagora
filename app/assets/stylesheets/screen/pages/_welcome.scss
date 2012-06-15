@@ -15,9 +15,21 @@
 			margin-bottom: 1em;
 		}
 	}
-	
-	.layout-dashboard {
-		margin: 1em 2em;
+}
+
+#welcome.dashboard {
+	#logo {
+		display: none;
+	}
+	#header {
+		padding-top: 0;
+	}
+	#content {
+		padding-top: 0;
+	}
+
+	.content-dashboard {
+		margin: 0 2em;
 		header {
 			width: 100%;
 			height: auto;
@@ -26,8 +38,10 @@
 				margin: 0 0 0.5em 0;
 			}
 		}
-		section.layout-item {
-		  float: left;
+		.layout-group {
+			border-spacing: 0;
+		}
+		.layout-item {
 		  width: 50%;
 		  header h1 {
 		    font-size: 48px;

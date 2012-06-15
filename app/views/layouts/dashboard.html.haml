@@ -29,9 +29,8 @@
           - if content_for? :title
             %h1= yield :title
           = yield :content_header if content_for? :content_header
-        .content-container
-          .content-dashboard
-            = yield
+        .content-container.content-dashboard
+          = yield
 
       = render :partial => 'common/discussion'
 
