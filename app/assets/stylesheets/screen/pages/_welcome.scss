@@ -28,6 +28,10 @@
 		padding-top: 0;
 	}
 
+  nav.global .primary {
+    height: 80px;
+  }
+
 	.content-dashboard {
 		margin: 0 2em;
 		header {
@@ -45,6 +49,11 @@
 		  width: 50%;
 		  header h1 {
 		    font-size: 48px;
+		    @include alt-font;
+				letter-spacing: -0.01em;
+        margin-top: -76px;
+		    color: #fff;
+				@include text-shadow(#240B07 -1px -1px 1px);
 		  }
 		  article {
 		    margin-bottom: 1em;
