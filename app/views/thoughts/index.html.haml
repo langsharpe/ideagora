@@ -14,11 +14,11 @@
       = link_to "You better add one!", "#add"
   - else
     .layout-group
-      .unvoted.layout-item
+      .unvoted
         %h3 Fresh
         - @unvoted.each do |thought|
           = render thought
-      .voted.layout-item
+      .voted
         %h3 Popular
         - @voted.each do |thought|
           = render thought
