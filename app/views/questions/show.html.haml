@@ -1,0 +1,14 @@
+- content_for :title do
+  = @question.to_s
+
+- content_for :content_header do
+  - if current_user && organiser? || (@question.user == current_user)
+    #actions
+      %ul.actions.as-buttons
+        %li= link_to "Change this talk", edit_question_path(@question)
+
+%p= @question.title
+%p= @question.description
+
+= render :partial => 'users/user_card', :locals => {:user => @question.user}
+    

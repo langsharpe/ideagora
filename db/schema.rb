@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115021329) do
+ActiveRecord::Schema.define(:version => 20120616060208) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "camp_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120115021329) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "question_id"
   end
 
   add_index "likes", ["user_id", "thought_id"], :name => "index_likes_on_user_id_and_thought_id", :unique => true
@@ -83,6 +84,17 @@ ActiveRecord::Schema.define(:version => 20120115021329) do
     t.datetime "status_changed_at"
     t.string   "status"
   end
+
+  create_table "questions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "likes_count"
+  end
+
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
   create_table "statuses", :force => true do |t|
     t.string   "type"

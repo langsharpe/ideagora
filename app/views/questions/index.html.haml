@@ -1,0 +1,12 @@
+-content_for :title do
+  Questions
+
+-content_for :content_header do
+  #actions
+    %ul.actions.as-buttons
+      %li=link_to "Add a Question", new_question_path
+
+%section
+  - if @questions.present?
+    .layout-group
+      = render @questions

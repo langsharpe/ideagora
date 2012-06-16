@@ -1,0 +1,17 @@
+%article.question
+  .description
+    = textilize(question.title).try(:html_safe)
+  .mastermind
+    - if question.user
+      %a.userlink{:href => user_path(question.user)}
+        = user_avatar(question.user, 24)
+        %span.name= question.user
+  .upvotes
+    %span.upvote-gem{:"data-count" => question.likes.count}
+      %span.value= question.likes.count
+  %footer
+    %ul.actions
+      -if question.liked_by? current_user
+        %li= link_to "unlike", question_unlike_path(question), :"data-action" => "like"
+      - else
+        %li= link_to "like", question_like_path(question), :"data-action" => "unlike"

@@ -85,3 +85,7 @@ end
 Thought.blueprint do
   # Attributes here
 end
+
+Question.blueprint do
+  # Attributes here
+end

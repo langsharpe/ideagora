@@ -20,6 +20,11 @@ Ideagora::Application.routes.draw do
     get 'like' => "likes#create", :as => 'like'
     get 'unlike' => "likes#destroy", :as => 'unlike'
   end
+  resources :questions do
+    resources :likes, :only => [:create, :destroy]
+    get 'like' => "likes#create", :as => 'like'
+    get 'unlike' => "likes#destroy", :as => 'unlike'
+  end
   resources :notices
   resources :discussions
   resources :sessions

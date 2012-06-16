@@ -1,0 +1,91 @@
+$countGemWidth: 37px;
+$userLabelHeight: 24px;
+
+.question {
+  background: $darkPanelBackground;
+  color: $darkPanelColor;
+  padding: 10px 10px 20px+$userLabelHeight 10px;
+  position: relative;
+  margin: 0 20px 20px 0;
+  
+  > .description {
+    @include box-sizing("border-box");
+    padding: 10px 26px 20px;
+    position: relative;
+    margin-right: $countGemWidth+20px;
+    
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    
+    &:before, &:after {
+      color: #999;
+      display: block;
+      position: absolute;
+      font-size: 30px;
+      line-height: 1;
+      height: 20px;
+    }
+    &:before { content: '\201C'; top: 0; left: 0px; }
+    &:after { content: '\201E'; bottom: 30px; right: 10px; }
+  }
+  
+  > .mastermind {
+    font-size: 0.9em;
+    height: $userLabelHeight;
+    position: absolute;
+    bottom: 10px;
+    
+    > .userlink { height: $userLabelHeight; }
+    img { height: $userLabelHeight; }
+    .name { height: $userLabelHeight; }
+  }
+  
+  > .upvotes {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    
+    .upvote-gem {
+      @include circle($countGemWidth);
+      background: $timeGemBackground;
+      color: $timeGemColor;
+      
+      &[data-count="0"] {
+        display: none;
+      }
+      
+      .value:before {
+        content: '+';
+      }
+    }
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    line-height: $userLabelHeight;
+    
+    .actions a {
+      display: inline-block;
+      height: $userLabelHeight;
+    }
+  }
+}
+
+form.question {
+  min-width: 480px;
+}
+
+.layout-group.with-questions {
+  > .layout-item {
+    &:first-child {
+      width: 520px;
+    }
+    + .layout-item {
+      padding-left: 40px;
+    }
+  }
+}
