@@ -36,6 +36,7 @@ sean@kiiii.com
 sebastian@vonconrad.com
 secoif@gmail.com
 tridge@internode.on.net
+j.fraser@modsognir.com
 ).each do |email|
   puts "Setting #{email} as organiser"
   organiser = User.find_by_email(email)
