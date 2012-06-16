@@ -3,7 +3,7 @@
 .layout-group.with-thoughts
   .layout-item
     = render 'form'
-  - if @thoughts.any?
+  - if @thoughts.present?
     .layout-item
       = render :partial => 'thoughts/looking_for_ideas'
 
