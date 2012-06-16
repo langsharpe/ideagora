@@ -5,10 +5,6 @@ class Attendance < ActiveRecord::Base
   validates_presence_of :camp_id, :user_id
   
   def organiser?
-    if camp.current? && organiser
-      true
-    else
-      false
-    end
+    camp.current? && organiser
   end
 end

@@ -27,7 +27,7 @@ class Camp < ActiveRecord::Base
   def talks_by_day
     #TODO test me
     #OPTIMIZE: this is ghetto and could be done nicer in sql instead of ruby, but this is quick and dirty for now
-    returning ActiveSupport::OrderedHash.new do |tbd|
+    ActiveSupport::OrderedHash.new.tap do |tbd|
       (start_at.to_date..end_at.to_date).each do |date|
         tbd[date] = talks.for_day(date)
       end

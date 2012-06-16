@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :notices
   has_many :thoughts
   has_many :likes
+  has_many :questions
   
   validates_presence_of :first_name, :email
   validates_uniqueness_of :email
@@ -20,11 +21,7 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    if last_name
-      first_name + ' ' + last_name
-    else
-      first_name
-    end
+    [first_name, last_name].compact.join(' ')
   end
   
   def organiser?
@@ -32,7 +29,6 @@ class User < ActiveRecord::Base
   end
   
   def self.authenticate(param)
-    user = find_by_email(param) || find_by_twitter(param)
-    user ? user : nil
+    find_by_email(param) || find_by_twitter(param)
   end
 end
