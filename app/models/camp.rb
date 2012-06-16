@@ -37,6 +37,10 @@ class Camp < ActiveRecord::Base
   def upcoming_talks
     talks.after(Time.now).before(end_at)
   end
+
+  def grouped_upcoming_talks
+    upcoming_talks.group_by(&:session)
+  end
   
   def past_talks
     talks.before(Time.now).after(start_at)

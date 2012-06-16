@@ -23,9 +23,9 @@
     - else
       - @upcoming.each do |time, talks|
         %h3
-          %time{:datetime => time}
-            %span.day= time.strftime "%A"
-            %span.time= time.strftime "%l:%M %P"
+          %time{:datetime => time.first}
+            %span.day= time.first.strftime "%A"
+            %span.time= time.last.humanize
         = render :partial => "list", :locals => { :talks => talks }
 
   %div.item-detail-panel

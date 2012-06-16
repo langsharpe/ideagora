@@ -3,9 +3,7 @@ class TalksController < AuthenticatedController
 
   def index
     @in_progress = current_camp.talks.in_progress
-    @upcoming = current_camp.upcoming_talks
-    @upcoming = @upcoming.group_by { |a| (a.start_at + Time.zone.utc_offset + 1.hour).to_i / 6.hours }
-    @upcoming = Hash[@upcoming.map { |key, val| [Time.zone.at(key * 6.hours - Time.zone.utc_offset - 1.hour), val] }]
+    @upcoming = current_camp.grouped_upcoming_talks
     index!
   end
 
