@@ -30,9 +30,17 @@ describe 'questions', :type => :request do
     visit questions_path
 
     page.should have_content(question.title)
-    page.should have_content(question.description)
   end
 
   it "lets somebody comment on a question"
-  it "lets somebody upvote a question"
+
+  it "lets somebody upvote a question" do
+    question = Question.create(title: "Here is something I would like to know", description: "These are some details.")
+    visit questions_path
+
+    click_link "like"
+
+    question.reload.likes_count.should == 1
+    page.should have_content("unlike")
+  end
 end
